@@ -1,15 +1,18 @@
 pipeline {
   agent any
   
+  tools {
+    gradle 'Default'
+  }
+  
   stages {
     
     stage("test") {
       
       steps {
         echo 'Testing the application'
-        withGradle() {
-          sh './gradlew -v'
-        }
+        sh './gradlew -v'
+        sh './gradlew test'
         echo 'Application tested'
       }
     }
