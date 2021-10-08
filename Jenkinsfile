@@ -3,27 +3,14 @@ pipeline {
   
   stages {
     
-    stage("build") {
-      
-      steps {
-        echo 'Building the application'
-        echo 'Application builted'
-      }
-    }
-    
     stage("test") {
       
       steps {
         echo 'Testing the application'
+        withGradle() {
+          sh './gradlew -v'
+        }
         echo 'Application tested'
-      }
-    }
-    
-    stage("deploy") {
-      
-      steps {
-        echo 'Deploying the application'
-        echo 'Application deployed'
       }
     }
   }
