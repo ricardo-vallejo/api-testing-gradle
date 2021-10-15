@@ -9,9 +9,13 @@ public class RegisterUserDataBuilder {
     private static final Faker FAKER = new Faker();
     private RegisterUserRequest userRequest;
 
-    private RegisterUserDataBuilder() {
+    private void createUserDefault() {
         userRequest = new RegisterUserRequest();
         this.userRequest = RegisterUserDataFactory.validDefaultUser();
+    }
+
+    private RegisterUserDataBuilder() {
+        createUserDefault();
     }
 
     public static RegisterUserDataBuilder registerUserDataBuilder(){
@@ -41,6 +45,10 @@ public class RegisterUserDataBuilder {
     public RegisterUserDataBuilder withWrongEmail() {
         this.userRequest.setEmail(FAKER.internet().emailAddress());
         return this;
+    }
+
+    public RegisterUserRequest build(){
+        return userRequest;
     }
 
 }

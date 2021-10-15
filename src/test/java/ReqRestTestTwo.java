@@ -46,6 +46,7 @@ public class ReqRestTestTwo extends BaseTest{
 
     @Test
     public void registerUser() {
+        // Create a user using Builder pattern
         RegisterUserRequest registerUserRequest = RegisterUserReqBuilder
                 .registerUser()
                 .withEmail("eve.holt@reqres.in")
