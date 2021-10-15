@@ -1,3 +1,5 @@
+import model.RegisterUserReqBuilder;
+import model.RegisterUserRequest;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
@@ -40,5 +42,24 @@ public class ReqRestTestTwo extends BaseTest{
                 .statusCode(HttpStatus.SC_OK)
                 .and()
                 .body("data.id", equalTo(3));
+    }
+
+    @Test
+    public void registerUser() {
+        RegisterUserRequest registerUserRequest = RegisterUserReqBuilder
+                .registerUser()
+                .withEmail("eve.holt@reqres.in")
+                .withPassword("pistol")
+                .build();
+
+        given()
+                .body(registerUserRequest)
+                .when()
+                .post("/register")
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK)
+                .and()
+                .body("id", equalTo(4));
     }
 }

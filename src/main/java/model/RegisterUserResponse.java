@@ -1,3 +1,5 @@
+package model;
+
 public class RegisterUserResponse{
 	private int id;
 	private String token;

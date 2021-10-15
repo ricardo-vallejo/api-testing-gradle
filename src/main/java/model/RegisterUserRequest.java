@@ -1,3 +1,5 @@
+package model;
+
 public class RegisterUserRequest{
 	private String password;
 	private String email;

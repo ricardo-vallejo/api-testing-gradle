@@ -25,6 +25,8 @@ dependencies {
     implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.15.0'
     // https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5
     testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.15.0'
+    // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
 }
 
 test {
